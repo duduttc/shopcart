@@ -5,7 +5,7 @@ $(document).ready(function(){
 			button_content.html('Add...'); //Loading button text 
 
 			$.ajax({ //request ajax ke cart_process.php
-				url: "http://www.shmilycomputer.com/_lib/cart_process.php",
+				url: "http://shmilycomputer.com/_lib/cart_process.php",
 				type: "POST",
 				dataType:"json", 
 				data: form_data
@@ -23,8 +23,8 @@ $(document).ready(function(){
 	//menampilkan item ke keranjang belanja
 	$( ".cart-box").click(function(e) { 
 		e.preventDefault(); 
-		$("#shopping-cart-results").html('<img src="_img/bx_loader.gif">'); //menampilkan loading gambar
-		$("#shopping-cart-results" ).load( "http://www.shmilycomputer.com/_lib/cart_process.php", {"load_cart":"1"}); //membuat permintaan ajax menggunakan dengan jQuery Load() & update
+		$("#shopping-cart-results").html('<img src="http://shmilycomputer.com/_img/bx_loader.gif">'); //menampilkan loading gambar
+		$("#shopping-cart-results" ).load( "http://shmilycomputer.com/_lib/cart_process.php", {"load_cart":"1"}); //membuat permintaan ajax menggunakan dengan jQuery Load() & update
 	});
 	
 	
@@ -33,7 +33,7 @@ $(document).ready(function(){
 		e.preventDefault(); 
 		var pcode = $(this).attr("data-code"); //mendapatkan get produk
 		$(this).parent().fadeOut(); //menghapus elemen item dari kotak
-		$.getJSON( "http://www.shmilycomputer.com/_lib/cart_process.php", {"remove_code":pcode} , function(data){ //mendapatkan Harga Barang dari Server
+		$.getJSON( "http://shmilycomputer.com/_lib/cart_process.php", {"remove_code":pcode} , function(data){ //mendapatkan Harga Barang dari Server
 			$("#cart-info").html(data.items); //update Menjullahkan item pada cart-info
 			$(".cart-box").trigger( "click" ); //trigger click on cart-box to untuk memperbarui daftar item
 		});
